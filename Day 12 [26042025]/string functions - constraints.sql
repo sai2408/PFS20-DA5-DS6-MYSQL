@@ -1,0 +1,73 @@
+CREATE DATABASE HELLO11;
+USE HELLO11;
+
+SELECT SUBSTRING("PYTHON",3);
+SELECT SUBSTRING("PYHTON",3,3);
+SELECT REVERSE("ABC");
+SELECT REVERSE("HELLO");
+SELECT REPLACE("HELLO","L","T");
+SELECT REPLACE("HELLO","LL","T"); 
+SELECT REPLACE("MYSQL","MY","");
+SELECT REPLACE("MYSQL","MYSQL","PYTHON");
+
+CREATE TABLE students(
+	ID INT,
+    FIRST_NAME VARCHAR(20),
+    LAST_NAME VARCHAR(20),
+    EMAIL VARCHAR(30),
+    COURSE VARCHAR(30)
+);
+INSERT INTO students (id, first_name, last_name, email, course) VALUES
+(1, 'Alice', 'Johnson', 'alice.johnson@gmail.com', 'Data Science'),
+(2, 'Bob', 'Smith', 'bob_smith@yahoo.com', 'Computer Engineering'),
+(3, 'Charlie', 'Brown', 'charlie.brown@outlook.com', 'Information Technology'),
+(4, 'Diana', 'Prince', 'diana.prince@gmail.com', 'Cyber Security'),
+(5, 'Ethan', 'Wright', 'ethan.wright@hotmail.com', 'Data Analytics'),
+(6, 'Fiona', 'Lee', 'fiona.lee@university.edu', 'Software Development'),
+(7, 'George', 'Stone', 'george.stone@gmail.com', 'Computer Science'),
+(8, 'Hannah', 'Taylor', 'hannah_taylor@aol.com', 'Information Systems'),
+(9, 'Ivan', 'Martinez', 'ivan.martinez@gmail.com', 'Artificial Intelligence'),
+(10, 'Julia', 'Roberts', 'julia.roberts@edu.com', 'Cloud Computing');
+SELECT * FROM STUDENTS;
+
+SELECT CONCAT(FIRST_NAME," ",LAST_NAME) AS FULL_NAME FROM STUDENTS;
+SELECT CONCAT(EMAIL," - ",COURSE) AS INFORMATION FROM STUDENTS;
+SELECT CONCAT("STUDENT: ",FIRST_NAME," ",LAST_NAME) AS DETAILS 
+FROM STUDENTS;
+
+SELECT CONCAT_WS(" ",FIRST_NAME,LAST_NAME) AS FULL_NAME 
+FROM STUDENTS;
+SELECT CONCAT_WS(" - ",FIRST_NAME,LAST_NAME,EMAIL) AS INFO 
+FROM STUDENTS;
+SELECT CONCAT_WS(" , ",ID,FIRST_NAME,LAST_NAME) AS INFORMATION 
+FROM STUDENTS;
+
+SELECT LOWER(EMAIL) FROM STUDENTS;
+SELECT LOWER(COURSE) FROM STUDENTS;
+SELECT LOWER(CONCAT(FIRST_NAME," ",LAST_NAME)) FROM STUDENTS;
+
+SELECT UPPER(CONCAT(FIRST_NAME," ",LAST_NAME)) FROM STUDENTS;
+SELECT UPPER(EMAIL) FROM STUDENTS;
+SELECT UPPER(COURSE) AS COURSE_NAME FROM STUDENTS;
+
+SELECT FIRST_NAME,LENGTH(FIRST_NAME) FROM STUDENTS;
+SELECT * FROM STUDENTS WHERE LENGTH(EMAIL) > 20;
+SELECT CONCAT(FIRST_NAME," ",LAST_NAME),
+	   LENGTH(CONCAT(FIRST_NAME," ",LAST_NAME)) 
+FROM STUDENTS;
+
+SELECT FIRST_NAME,SUBSTRING(FIRST_NAME,1,3) FROM STUDENTS;
+
+SELECT REVERSE(FIRST_NAME) FROM STUDENTS;
+SELECT REVERSE(EMAIL) FROM STUDENTS;
+SELECT REVERSE(CONCAT(FIRST_NAME," ",LAST_NAME)) FROM STUDENTS;
+
+SELECT EMAIL,REPLACE(EMAIL,".com",".edu") from STUDENTS;
+SELECT REPLACE(CONCAT(FIRST_NAME," ",LAST_NAME)," ","-") 
+FROM STUDENTS;
+SELECT COURSE,REPLACE(COURSE,"Science","Sci") FROM STUDENTS;
+
+SELECT * FROM STUDENTS WHERE EMAIL LIKE "%@gmail.com";
+select * from students where first_name like "A%";
+SELECT * FROM STUDENTS WHERE COURSE LIKE "%Data%";
+
